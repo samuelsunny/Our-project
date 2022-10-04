@@ -45,12 +45,19 @@ $user_data = check_login($con);
                         Exporter
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="addproducts.php">Add products</a></li>
-                        <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="received_orders.php">Received orders</a></li>
                     </ul>
                 </li>
-                
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Products
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="addproducts.php">Add products</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="products.php">View all products</a></li>
+                    </ul>
+                </li>
             </ul>
             
                 <span class="align-middle mr-2">
@@ -63,9 +70,23 @@ $user_data = check_login($con);
         </div>
     </nav>
     
-    <div class="row justify-content-center mt-2">
+    <div class="row justify-content-center mt-5">
         <div class="col-6">
-            <h1 class="display-4 fs-3 "><b>Content Scheduling and Management</b></h1>
+            <h1 class="display-4 fs-2 text-center"><b>Container Management System</b></h1>
+            <h3 class="display-6 fs-2 text-center mt-5">Better container management, better commerce</p>
+            <hr/>
+            <div class="row justify-content-center">
+                <div class="col-8 mt-4">
+                <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action active">Container management                </a>
+                <a href="#" class="list-group-item list-group-item-action">Container tracking</a>
+                <a href="#" class="list-group-item list-group-item-action">Exporter-importer marketplace</a>
+            </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <img src="home1.png" class="img-fluid" alt="...">
         </div>
     </div>
 

@@ -22,15 +22,15 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         if (count($_FILES) > 0) {
 
             if (is_uploaded_file($_FILES['image_file']['tmp_name'])) {
-                $imgData = base64_encode(file_get_contents(addslashes(file_get_contents($_FILES['image_file']['tmp_name']))));
+                $imgData = addslashes(file_get_contents($_FILES['image_file']['tmp_name']));
                 // $imageProperties = getimageSize($_FILES['userImage']['tmp_name']);
                 $product_image  =  $imgData;
 
                     // Saving to data base
                 
-                    // $imagequery = "insert into product_images (image_type,image_data) values ('{$imageProperties['mime']}', '{$imgData}')";
+                    $imagequery = "insert into product_images (image_type,image_data) values ('{$imageProperties['mime']}', '{$imgData}')";
 
-                    // mysqli_query($con, $imagequery);
+                    mysqli_query($con, $imagequery);
 
                     $sql = "INSERT INTO product_images(imageType ,imageData)
                     VALUES('{$imageProperties['mime']}', '{$imgData}')";
@@ -102,7 +102,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="products.php">Place order</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">My orders</a></li>
+                        <li><a class="dropdown-item" href="myorders.php">My orders</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -110,12 +110,19 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                         Exporter
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="addproducts.php">Add products</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Received orders</a></li>
+                        <li><a class="dropdown-item" href="received_orders.php">Received orders</a></li>
                     </ul>
                 </li>
-                
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Products
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="addproducts.php">Add products</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="products.php">View all products</a></li>
+                    </ul>
+                </li>
             </ul>
             
                 <span class="align-middle mr-2">
@@ -130,7 +137,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 
     <div class="row justify-content-center mt-5">
         <div class="col-6">
-            <h1 class="display-4 fs-2 text-center"><b>Enter product details</b></h1>
+            <h1 class="display-4 fs-2 text-center"><b>Container Management System</b></h1>
         </div>
     </div>
 

@@ -77,12 +77,19 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                         Exporter
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="addproducts.php">Add products</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Received orders</a></li>
+                        <li><a class="dropdown-item" href="received_orders.php">Received orders</a></li>
                     </ul>
                 </li>
-                
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Products
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="addproducts.php">Add products</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="products.php">View all products</a></li>
+                    </ul>
+                </li>
             </ul>
             
                 <span class="align-middle mr-2">
@@ -95,11 +102,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         </div>
     </nav>
       
-      <div class="row mt-2 justify-content-center">
-          <div class="col-6">
-              <h1 class="display-4 fs-3 "><b>Content Scheduling and Management</b></h1>
-          </div>
-      </div>
+    <div class="row justify-content-center mt-5">
+        <div class="col-6">
+            <h1 class="display-4 fs-2 text-center"><b>Container Management System</b></h1>
+        </div>
+    </div>
   
   
       
