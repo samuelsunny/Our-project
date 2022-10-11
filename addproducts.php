@@ -19,31 +19,19 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         $exporter_id     = $user_data['user_id'];
         $exporter_name     = $user_data['user_company'];
 
-        if (count($_FILES) > 0) {
-
-            if (is_uploaded_file($_FILES['image_file']['tmp_name'])) {
-                $imgData = addslashes(file_get_contents($_FILES['image_file']['tmp_name']));
-                // $imageProperties = getimageSize($_FILES['userImage']['tmp_name']);
-                $product_image  =  $imgData;
-
-                    // Saving to data base
-                
-                    $imagequery = "insert into product_images (image_type,image_data) values ('{$imageProperties['mime']}', '{$imgData}')";
-
-                    mysqli_query($con, $imagequery);
-
-                    $sql = "INSERT INTO product_images(imageType ,imageData)
-                    VALUES('{$imageProperties['mime']}', '{$imgData}')";
-                        $current_id = mysqli_query($conn, $sql) or die("<b>Error:</b> Problem on Image Insert<br/>" . mysqli_error($conn));
-                        if (isset($current_id)) {
-                            header("Location: index.php");
-                        }
-                
-                // header("Location: index.php");
-                // die;
+       
+        if(!empty($_FILES["image_file"]["name"])) { 
+            echo "Inside image code!";
+            // Get file info 
+            $fileName = basename($_FILES["image_file"]["name"]); 
+            $fileType = pathinfo($fileName, PATHINFO_EXTENSION); 
+             
+            // Allow certain file formats 
+            $allowTypes = array('jpg','png','jpeg','gif'); 
+            if(in_array($fileType, $allowTypes)){ 
+                $image = $_FILES['image_file']['tmp_name']; 
+                $imgContent = addslashes(file_get_contents($image)); 
             }
-           
-
         }
 
 
@@ -55,7 +43,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
             (!empty($product_weight)))
         {
             // Saving to data base
-            $query = "insert into products (product_name,brand,type,product_barcode,product_weight,product_image,price,exporter_id,exporter_name) values ('$product_name','$brand','$type','$product_barcode','$product_weight',0,'$price','$exporter_id','$exporter_name')";
+            $query = "insert into products (product_name,brand,type,product_barcode,product_weight,product_image,price,exporter_id,exporter_name) values ('$product_name','$brand','$type','$product_barcode','$product_weight','$imgContent','$price','$exporter_id','$exporter_name')";
 
             mysqli_query($con, $query);
 
@@ -120,7 +108,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="addproducts.php">Add products</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="allproducts.php">View all products</a></li>
+                        <li><a class="dropdown-item" href="products.php">View all products</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -159,13 +147,13 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 
     <div class="row justify-content-center mt-5">
         <div class="col-6">
-            <h1 class="display-4 fs-2 text-center"><b>Container Management System</b></h1>
+            <h1 class="display-4 fs-2 text-center"><b>Add product details</b></h1>
         </div>
     </div>
 
     <div class="row mt-5 justify-content-center">
         <div class="col-6">
-        <form method = "post">
+        <form method = "post" enctype="multipart/form-data">
             <div class="row">
                 <div class="mb-4">
                     <input type="text" class="form-control" id="exampleFormControlInput1" name = "product_name" placeholder="Enter the product name">
@@ -202,7 +190,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
             <div class="row">
                 <div class="mb-3">
                     <label for="formFile" class="form-label">Choose the product image file</label>
-                    <input class="form-control" type="file" id="formFile" name="image_file" value="">
+                    <input class="form-control" type="file" id="formFile" name="image_file">
                 </div>
             </div>
         </div>
