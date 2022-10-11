@@ -82,7 +82,7 @@ if($_SERVER['REQUEST_METHOD'] == "GET")
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="addproducts.php">Add products</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="allproducts.php">View all products</a></li>
+                        <li><a class="dropdown-item" href="products.php">View all products</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -93,18 +93,6 @@ if($_SERVER['REQUEST_METHOD'] == "GET")
                         <li><a class="dropdown-item" href="addusers.php">Add users</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="viewusers.php">View all users</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Orders
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="addusers.php">Container loading order</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="viewusers.php">Sea shipping order</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="viewusers.php">Truck shipping order</a></li>
                     </ul>
                 </li>
             </ul>
@@ -131,9 +119,10 @@ if($_SERVER['REQUEST_METHOD'] == "GET")
         <div class="row mt-4">
 
             <?php for ($row = 0; $row < count($products_data); $row++) { ?>
-            <div class="col-3 m-0 p-0 mx-auto">
+            <div class="col-3 w-20 m-0 p-0 mx-auto">
                   <div class="image">
-                      <img class="image__img" src="pic1.jpg" alt="Bricks">
+                      <!-- <img class="image__img" src="pic1.jpg" alt="Bricks"> -->
+                      <img class="img-fluid h-50" width = "250px" height="250px" src="data:image/png;charset=utf8;base64,<?php echo base64_encode($products_data[$row][6]); ?>">
                       <div class="image__overlay image__overlay--primary">
                           <div class="image__title text-center"><?php echo $products_data[$row][2]," ", $products_data[$row][1]?></div>
                           <p class="image__description m-0 p-0 text-center">
@@ -246,4 +235,6 @@ if($_SERVER['REQUEST_METHOD'] == "GET")
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
   </body>
 </html>
+
+
 
