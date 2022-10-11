@@ -90,6 +90,28 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                         <li><a class="dropdown-item" href="products.php">View all products</a></li>
                     </ul>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Admin
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="addusers.php">Add users</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="viewusers.php">View all users</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Orders
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="addusers.php">Container loading order</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="viewusers.php">Sea shipping order</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="viewusers.php">Truck shipping order</a></li>
+                    </ul>
+                </li>
             </ul>
             
                 <span class="align-middle mr-2">
