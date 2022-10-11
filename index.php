@@ -55,7 +55,7 @@ $user_data = check_login($con);
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="addproducts.php">Add products</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="products.php">View all products</a></li>
+                        <li><a class="dropdown-item" href="allproducts.php">View all products</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
