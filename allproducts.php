@@ -56,7 +56,7 @@ if($_SERVER['REQUEST_METHOD'] == "GET")
   </head>
   <body>
     <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg bg-light">
+    <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">C S M</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
@@ -76,8 +76,6 @@ if($_SERVER['REQUEST_METHOD'] == "GET")
                         <li><a class="dropdown-item" href="products.php">Place order</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="myorders.php">My orders</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="addwarehouse.php">Add warehouse</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -95,7 +93,7 @@ if($_SERVER['REQUEST_METHOD'] == "GET")
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="addproducts.php">Add products</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="allproducts.php">View all products</a></li>
+                        <li><a class="dropdown-item" href="products.php">View all products</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -119,6 +117,15 @@ if($_SERVER['REQUEST_METHOD'] == "GET")
             </div>
         </div>
     </nav>
+
+    <div class="row justify-content-center mt-1 mb-2">
+        <div class="col-6">
+            <form class="d-flex" role="search" action="searchresult.php" method="post">
+                <input class="form-control me-2" name="product_name" id="product_name" type="search" placeholder="Search by product name" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>        
+        </div>
+    </div>
       
     <div class="row justify-content-center mt-1">
         <div class="col-6">
@@ -148,7 +155,7 @@ if($_SERVER['REQUEST_METHOD'] == "GET")
                     <td class="w-25 text-center">
                         <img class="img" src="data:image/png;charset=utf8;base64,<?php echo base64_encode($products_data[$row][6]); ?>" width = "150px" height="150px">
                     </td>
-                    <td class="text-center"><?php echo $products_data[$row][2]," ",$products_data[$row][1]; ?></td>
+                    <td class="text-center"><?php echo $products_data[$row][1]; ?></td>
                     <td class="text-center"><?php echo $products_data[$row][3]; ?></td>
                     <td class="text-center"><?php echo "$",$products_data[$row][7]; ?></td>
                     <td class="text-center"><?php echo $products_data[$row][9]; ?></td>
